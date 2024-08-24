@@ -3,7 +3,7 @@
   "name": "pursuit",
   "title": "Pursuit",
   "description": "Pursuit raycast extension",
-  "icon": "command-icon.png",
+  "icon": "extension-icon.png",
   "author": "birdgg",
   "categories": [
     "Documentation"
@@ -12,8 +12,8 @@
   "commands": [
     {
       "name": "index",
-      "title": "Pursuit",
-      "description": "Template for showing a static list and a detail view",
+      "title": "Pursuit Search",
+      "description": "Search in pursuit",
       "mode": "view"
     }
   ],

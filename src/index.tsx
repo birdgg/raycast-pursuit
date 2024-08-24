@@ -1,4 +1,4 @@
-import { Action, ActionPanel, List } from "@raycast/api";
+import { Action, ActionPanel, Icon, List } from "@raycast/api";
 import { useFetch } from "@raycast/utils";
 import { useState } from "react";
 import type { DeclarationInfo, ItemInfo, SearchItem } from "./types";
@@ -57,7 +57,7 @@ function Detail(item: SearchItem) {
   return <List.Item.Detail markdown={item.text} metadata={<Metadata {...item} />} />;
 }
 
-function Metadata({ package: packageName, info }: SearchItem) {
+function Metadata({ package: packageName, info, version }: SearchItem) {
   const { typeText, module } = info as DeclarationInfo;
   return (
     <List.Item.Detail.Metadata>
@@ -69,6 +69,7 @@ function Metadata({ package: packageName, info }: SearchItem) {
       ) : null}
       <List.Item.Detail.Metadata.Label title="Package" text={packageName} />
       <List.Item.Detail.Metadata.Label title="Module" text={module} />
+      <List.Item.Detail.Metadata.Label title="Version" text={version} />
     </List.Item.Detail.Metadata>
   );
 }
@@ -76,7 +77,7 @@ function Metadata({ package: packageName, info }: SearchItem) {
 function Actions({ url, setShowDetail }: { url: string; setShowDetail: (t: boolean) => void }) {
   return (
     <ActionPanel>
-      <Action title="Show Detail" onAction={() => setShowDetail(true)} />
+      <Action title="Show Detail" onAction={() => setShowDetail(true)} icon={Icon.AppWindowSidebarRight} />
       <Action.OpenInBrowser url={url} />
     </ActionPanel>
   );
